@@ -1,0 +1,650 @@
+	<!DOCTYPE html>
+    {% load static %}
+	<html lang="zxx" class="no-js">
+	<head>
+		<!-- Mobile Specific Meta -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<!-- Favicon-->
+		<link rel="shortcut icon" href="img/fav.png">
+		<!-- Author Meta -->
+		<meta name="author" content="colorlib">
+		<!-- Meta Description -->
+		<meta name="description" content="">
+		<!-- Meta Keyword -->
+		<meta name="keywords" content="">
+		<!-- meta character set -->
+		<meta charset="UTF-8">
+		<!-- Site Title -->
+		<title>Adventure</title>
+
+		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+			<!--
+			CSS
+			============================================= -->
+			<link rel="stylesheet" href="{% static 'myapp1/css/linearicons.css' %}">
+			<link rel="stylesheet" href="{% static 'myapp1/css/owl.carousel.css' %}">
+			<link rel="stylesheet" href="{% static 'myapp1/css/font-awesome.min.css' %}">
+			<link rel="stylesheet" href="{% static 'myapp1/css/nice-select.css' %}">
+			<link rel="stylesheet" href="{% static 'myapp1/css/magnific-popup.css' %}">
+			<link rel="stylesheet" href="{% static 'myapp1/css/bootstrap.css' %}">
+			<link rel="stylesheet" href="{% static 'myapp1/css/main.css' %}">
+		</head>
+		<body>
+			<!-- start banner Area -->
+			<section class="banner-area" id="home">
+				<!-- Start Header Area -->
+				<header class="default-header">
+					<nav class="navbar navbar-expand-lg  navbar-light">
+						<div class="container">
+							  <a class="navbar-brand">
+							  	<img src="{% static 'myapp1/img/logo.png' %}" alt="">
+							  </a>
+							  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+							    <span class="text-white lnr lnr-menu"></span>
+							  </button>
+
+							  <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
+							    <ul class="navbar-nav">
+									<li><a href="#home">Home</a></li>
+{#									<li><a href="#secvice">service</a></li>#}
+                                    <div class="dropdown" style="margin-right: 10px">
+                                        <li class="dropdown-toggle" style="text-transform: uppercase; font-weight: 600; color: #fff;" id="#dropdownmenu" data-mdb-toggle="dropdown" aria-expanded="false">BOOKINGS</li>
+                                          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <li><a class="dropdown-item" href= "{% url 'myapp1:BookingAdventure' %}">Adventure</a>
+                                              <li><a class="dropdown-item" href="{% url 'myapp1:PacakageBookingAdventure' %}">Package</a></li>
+                                              <li><a class="dropdown-item" href="{% url 'myapp1:PackageAdventures' %}">Create New Package</a></li>
+                                          </ul>
+                                    </div>
+                                    <div class="dropdown">
+                                        <li class="dropdown-toggle" style="text-transform: uppercase; font-weight: 600; color: #fff;" id="#dropdownmenu" data-mdb-toggle="dropdown" aria-expanded="false">SERVICES</li>
+                                          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <li><a class="dropdown-item" href= "{% url 'myapp1:BookedRecords' %}">My Bookings</a>
+                                              <li><a class="dropdown-item" href="{% url 'myapp1:userpackages' %}">My Packages</a></li>
+                                          </ul>
+                                    </div>
+{#                                    <li><a href="#about">About</a></li>#}
+									<li><a href="#gallery">Gallery</a></li>
+                                    <li><a href="#gallery">Contact</a></li>
+                                <li><a href="{% url 'myapp1:ContactUSRecords'%}">Inquiry</a></li>
+                                    {% if user.is_authenticated %}
+    <li><a href = "{% url 'myapp1:user_logout'%}">Logout</a></li>
+{% else %}
+     <li><a href = "{% url 'myapp1:user_login'%}">Login</a></li>
+{% endif %}
+
+							    </ul>
+							  </div>
+						</div>
+					</nav>
+				</header>
+				<!-- End Header Area -->
+			</section>
+
+			<section class="default-banner active-blog-slider">
+					<div class="item-slider relative" style="background: url({% static 'myapp1/img/scubadiving.avif' %});background-size: cover;">
+						<div class="overlay" style="background: rgba(0,0,0,.3)"></div>
+						<div class="container">
+							<div class="row fullscreen justify-content-center align-items-center">
+								<div class="col-md-10 col-12">
+									<div class="banner-content text-center">
+										<h4 class="text-white mb-20 text-uppercase">Discover the magic underwater</h4>
+										<h1 class="text-uppercase text-white">Scuba Diving</h1>
+										<p class="text-white">The marine turtles and marine species which are worth witnessing. How Exciting!</p>
+
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+					<div class="item-slider relative" style="background: url({% static 'myapp1/img/rafting1.jpg' %});background-size: cover;">
+						<div class="overlay" style="background: rgba(0,0,0,.3)"></div>
+						<div class="container">
+							<div class="row fullscreen justify-content-center align-items-center">
+								<div class="col-md-10 col-12">
+									<div class="banner-content text-center">
+										<h4 class="text-white mb-20 text-uppercase">Add fun to your life with Rafting</h4>
+										<h1 class="text-uppercase text-white">River Rafting</h1>
+										<p class="text-white">With each passing kilometre the thrill never ends, the impulsive river has the caliber to fill one with extreme exhilaration! So, what are you waiting for? Grab your oars, put on your gear, and set out!</p>
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="item-slider relative" style="background: url({% static 'myapp1/img/jurrasic1.jpg' %});background-size:cover;">
+						<div class="overlay" style="background: rgba(0,0,0,.3)"></div>
+						<div class="container">
+							<div class="row fullscreen justify-content-center align-items-center">
+								<div class="col-md-10 col-12">
+									<div class="banner-content text-center">
+										<h4 class="text-white mb-20 text-uppercase">Caution! Alive Inside</h4>
+										<h1 class="text-uppercase text-white">Jurrasic Park</h1>
+										<p class="text-white">See Blue, T. rex and more of your favorite dinosaurs come to life at Jurassic Park Live Tour!</p>
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+			<!-- Start project Area -->
+			<section class="project-area section-gap" id="project">
+				<div class="container">
+					<div class="row d-flex justify-content-center">
+						<div class="menu-content pb-30 col-lg-10">
+							<div class="title text-center">
+								<h1 class="mb-10">Canada's Largest Extreme Adventure Island</h1>
+								<p>Finding the best rates is your priority but that’s only half the battle when capacities are reduced. Making the decision to book direct through our official website is the easiest part of your planning with the guaranteed best rates and exclusive lift access, discounted lift tickets and attractions, exclusive deals and more!</p>
+							</div>
+						</div>
+					</div>
+					<div class="row justify-content-center d-flex">
+						<div class="active-works-carousel mt-sm-40 col-lg-8">
+							<div class="item">
+								<img class="img-fluid" src="{% static 'myapp1/img/paragliding2.JPG' %}" alt="">
+								<div class="caption text-center mt-40">
+									<h6 class="text-uppercase">Paragliding</h6>
+									<p>Run by a corporate entity, Adventure Island offers worry-free access to the thrills of an adventure park, by ensuring utmost safety thanks to state-of-the-art rides, adventure sports and every kid-friendly activity imaginable. Options range from a Skydiving; to Scuba Diving; Jurrasic Park; Paraglyding; Slacking; and much more. Water sports and even a petting zoo are all part of the excitement at Adventure Island.</p>
+								</div>
+							</div>
+							<div class="item">
+								<img class="img-fluid" src="{% static 'myapp1/img/rafting2.jpg' %}" alt="">
+								<div class="caption text-center mt-20">
+									<h6 class="text-uppercase">River Rafting</h6>
+									<p>Run by a corporate entity, Adventure Island offers worry-free access to the thrills of an adventure park, by ensuring utmost safety thanks to state-of-the-art rides, adventure sports and every kid-friendly activity imaginable. Options range from a Skydiving; to Scuba Diving; Jurrasic Park; Paraglyding; Slacking; and much more. Water sports and even a petting zoo are all part of the excitement at Adventure Island.</p>
+								</div>
+							</div>
+ 							<div class="item">
+								<img class="img-fluid" src="{% static 'myapp1/img/slacking.avif' %}" alt="">
+								<div class="caption text-center mt-20">
+									<h6 class="text-uppercase">Slacking</h6>
+									<p>Run by a corporate entity, Adventure Island offers worry-free access to the thrills of an adventure park, by ensuring utmost safety thanks to state-of-the-art rides, adventure sports and every kid-friendly activity imaginable. Options range from a Skydiving; to Scuba Diving; Jurrasic Park; Paraglyding; Slacking; and much more. Water sports and even a petting zoo are all part of the excitement at Adventure Island.</p>
+								</div>
+							</div>
+							<div class="item">
+								<img class="img-fluid" src="{% static 'myapp1/img/skydiving.jpeg' %}" alt="">
+								<div class="caption text-center mt-20">
+									<h6 class="text-uppercase">Sky Diving</h6>
+									<p>Run by a corporate entity, Adventure Island offers worry-free access to the thrills of an adventure park, by ensuring utmost safety thanks to state-of-the-art rides, adventure sports and every kid-friendly activity imaginable. Options range from a Skydiving; to Scuba Diving; Jurrasic Park; Paraglyding; Slacking; and much more. Water sports and even a petting zoo are all part of the excitement at Adventure Island.</p>
+								</div>
+							</div>
+							<div class="item">
+								<img class="img-fluid" src="{% static 'myapp1/img/juraasic2.jpg' %}" alt="">
+								<div class="caption text-center mt-20">
+									<h6 class="text-uppercase">Jurassic Park</h6>
+									<p>Run by a corporate entity, Adventure Island offers worry-free access to the thrills of an adventure park, by ensuring utmost safety thanks to state-of-the-art rides, adventure sports and every kid-friendly activity imaginable. Options range from a Skydiving; to Scuba Diving; Jurrasic Park; Paraglyding; Slacking; and much more. Water sports and even a petting zoo are all part of the excitement at Adventure Island.</p>
+								</div>
+							</div>
+							<div class="item">
+								<img class="img-fluid" src="{% static 'myapp1/img/diving1.jpg' %}" alt="">
+								<div class="caption text-center mt-20">
+									<h6 class="text-uppercase">Scuba Diving</h6>
+									<p>Run by a corporate entity, Adventure Island offers worry-free access to the thrills of an adventure park, by ensuring utmost safety thanks to state-of-the-art rides, adventure sports and every kid-friendly activity imaginable. Options range from a Skydiving; to Scuba Diving; Jurrasic Park; Paraglyding; Slacking; and much more. Water sports and even a petting zoo are all part of the excitement at Adventure Island.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- End project Area -->
+
+
+			<!-- Start feature Area -->
+			<section class="feature-area section-gap" id="secvice">
+				<div class="container">
+					<div class="row d-flex justify-content-center">
+						<div class="menu-content pb-60 col-lg-8">
+							<div class="title text-center">
+								<h1 class="mb-10">Explore Us</h1>
+								<p>Take a leap, embrace the thrill - Adventure sports are the ultimate thrill!</p>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-4 col-md-6 " data-toggle="modal" data-target="#skymodal">
+							<div class="single-feature mb-30">
+								<div class="title d-flex flex-row pb-20">
+{#									<span class="lnr lnr-user"></span>#}
+									<h4><a href="#">Sky Diving</a></h4>
+								</div>
+								<p>
+								“The door opens up, the air rushes in. Anticipation is at an all-time high. There's no time to think, it's time to go. ...
+								</p>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-6 " data-toggle="modal" data-target="#raftingmodal">
+							<div class="single-feature mb-30">
+								<div class="title d-flex flex-row pb-20">
+{#									<span class="lnr lnr-license"></span>#}
+									<h4><a href="#">River Rafting</a></h4>
+								</div>
+								<p>
+									Usage of the Internet is becoming more common due to rapid advancement of technology and power.
+								</p>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-6 " data-toggle="modal" data-target="#jurrasicmodal">
+							<div class="single-feature mb-30">
+								<div class="title d-flex flex-row pb-20">
+{#									<span class="lnr lnr-phone"></span>#}
+                                    <h4><a href="#">Jurrasic Park</a></h4>
+								</div>
+								<p>
+									Usage of the Internet is becoming more common due to rapid advancement of technology and power.
+								</p>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-6 " data-toggle="modal" data-target="#slackingmodal">
+							<div class="single-feature">
+								<div class="title d-flex flex-row pb-20">
+{#									<span class="lnr lnr-rocket"></span>#}
+									<h4><a href="#">Slacking</a></h4>
+								</div>
+								<p>
+									Usage of the Internet is becoming more common due to rapid advancement of technology and power.
+								</p>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-6 " data-toggle="modal" data-target="#paramodal">
+							<div class="single-feature">
+								<div class="title d-flex flex-row pb-20">
+{#									<span class="lnr lnr-diamond"></span>#}
+									<h4><a href="#">Paragliding</a></h4>
+								</div>
+								<p>
+									Usage of the Internet is becoming more common due to rapid advancement of technology and power.
+								</p>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-6 " data-toggle="modal" data-target="#scubamodal">
+							<div class="single-feature">
+								<div class="title d-flex flex-row pb-20">
+{#									<span class="lnr lnr-bubble"></span>#}
+									<h4><a href="#">Scuba Diving</a></h4>
+								</div>
+								<p>
+									Usage of the Internet is becoming more common due to rapid advancement of technology and power.
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- End feature Area -->
+{#			<!-- Start about Area -->#}
+{#			<section class="section-gap info-area" id="about">#}
+{#				<div class="container">#}
+{#					<div class="row d-flex justify-content-center">#}
+{#						<div class="menu-content pb-40 col-lg-8">#}
+{#							<div class="title text-center">#}
+{#								<h1 class="mb-10">About US</h1>#}
+{#								<p>Who are in extremely love with eco friendly system.</p>#}
+{#							</div>#}
+{#						</div>#}
+{#					</div>#}
+{#					<div class="single-info row mt-40">#}
+{#						<div class="col-lg-6 col-md-12 mt-120 text-center no-padding info-left">#}
+{#							<div class="info-thumb">#}
+{#								<img src="{% static 'myapp1/img/about-img.jpg' %}" class="img-fluid" alt="">#}
+{#							</div>#}
+{#						</div>#}
+{#						<div class="col-lg-6 col-md-12 no-padding info-rigth">#}
+{#							<div class="info-content">#}
+{#								<h2 class="pb-30">We Realize that <br>#}
+{#								there are reduced <br>#}
+{#								Wastege Stand out</h2>#}
+{#								<p>#}
+{#									inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards – especially in the workplace. That’s why it’s crucial that, as women.#}
+{#								</p>#}
+{#								<br>#}
+{#								<p>#}
+{#									inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards – especially in the workplace. That’s why it’s crucial that, as women. inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards – especially in the workplace. That’s why it’s crucial that, as women.#}
+{#								</p>#}
+{#								<br>#}
+{#								<p>#}
+{#									inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards – especially in the workplace. That’s why it’s crucial that, as women.#}
+{#								</p>#}
+{#								</div>#}
+{#						</div>#}
+{#					</div>#}
+{#				</div>#}
+{#			</section>#}
+{#			<!-- End about Area -->#}
+
+			<!-- Start gallery Area -->
+			<section class="gallery-area" id="gallery">
+				<div class="container-fluid">
+					<div class="row no-padding">
+						<div class="active-gallery">
+							<div class="item single-gallery">
+								<img src="{% static 'myapp1/img/paragliding1.jpg' %}" alt="">
+							</div>
+							<div class="item single-gallery">
+								<img src="{% static 'myapp1/img/skydiving.jpeg' %}" alt="">
+							</div>
+							<div class="item single-gallery">
+								<img src="{% static 'myapp1/img/scubadiving.avif' %}" alt="">
+							</div>
+							<div class="item single-gallery">
+								<img src="{% static 'myapp1/img/diving1.jpg' %}" alt="">
+							</div>
+							<div class="item single-gallery">
+								<img src="{% static 'myapp1/img/juraasic2.jpg' %}" alt="">
+							</div>
+							<div class="item single-gallery">
+								<img src="{% static 'myapp1/img/slacking.avif' %}" alt="">
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- End gallery Area -->
+            <!-- Start Contact US Area -->
+            <section class="section-gap single-contact-info" id="contact">
+                <div class="container">
+                    <div class="row d-flex justify-content-center">
+						<div class="menu-content pb-40 col-lg-6">
+							<div class="title text-center">
+								<h1 class="mb-10">Contact US</h1>
+								<p>Who are in extremely love with eco friendly system.</p>
+							</div>
+                        </div>
+                    </div>
+                    <div class="row">
+	                <div class="col-md-6">
+                                <div class="title d-flex flex-row pb-20">
+                                    <h5>Adventurous Island</h5>
+								</div>
+								<div class="title d-flex flex-row">
+
+                                    <p><b>Phone Number:</b> +1 519 999 9898</p>
+								</div>
+                                <div class="title d-flex flex-row">
+									<p>
+                                        <b>Address:</b> 260, Randolph Pl, Windsor, ON, N9B2T3
+								</p>
+								</div>
+                                <div class="title d-flex flex-row">
+									<p>
+                                        <b>Email:</b> advisland@gmail.com
+								</p>
+								</div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="title d-flex flex-row pb-20">
+                            <h5>Send us a message</h5>
+                        </div>
+                        <form method="POST" action="{% url 'myapp1:save_data' %}">
+                            {% csrf_token %}
+                        <div class="text-left">
+                        <label for="usr">Name:</label>
+                             <input name="name" type="name" class="form-control" id="name" placeholder="Enter Name"><br>
+                        <label for="email">Email address:</label>
+                            <input name="email" type="email" class="form-control" placeholder="Enter email" id="email"><br>
+                        <label for="Message">Message:</label>
+                            <textarea name="message" class="form-control" rows="5" id="message" placeholder="Write us a message"></textarea><br>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                        </form>
+                    </div>
+                        </div>
+                </div>
+            </section>
+
+
+
+<div id="myModal" class="modal fade" role="dialog" >
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content" style="width: 700px;height: 500px;">
+      <div class="modal-header">
+
+        <h4 class="modal-title">Book your Skydiving</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body" width="700px;" height="500px;">
+{#           <a href={% url 'myapp1:Test'%} >Internal Link</a>#}
+          <iframe src="{% url 'myapp1:Test'%}" width="100%;"  height="100%;"></iframe>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+
+			<!-- Start logo Area -->
+			<section class="logo-area">
+				<div class="container">
+					<div class="row">
+
+					</div>
+				</div>
+			</section>
+			<!-- End logo Area -->
+            <div id="skymodal" class="modal fade" role="dialog" >
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content flex" >
+      <div class="modal-header">
+
+        <h4 class="modal-title">Ready, Set, Skydive!</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body" width="1000px;" height="800px;"  >
+{#           <a href={% url 'myapp1:Test'%} >Internal Link</a>#}
+          							<div class="modal-skydive" >
+
+								<div class="caption text-center mt-20">
+									<h6 class="text-uppercase" style="color: #0b0b0b">Sky Diving</h6>
+									<p>skydiving, Sport of jumping from an airplane at a moderate altitude (e.g., 6,000 ft [1,800 m]) and executing various body maneuvers before pulling the rip cord of a parachute. Competitive events include jumping for style, landing with accuracy, and performing in teams (e.g., making free-fall formations). The sport parachute is designed to be more maneuverable than the safety parachute.<br>Best Season: All year round (except Monsoon season)</p>
+															<div class="item single-gallery">
+								<img src="{% static 'myapp1/img/skydiving.jpeg' %}" alt="" style="height:200px">
+							</div>
+                                </div>
+							</div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+            <!-- River rafting model start -->
+<div id="raftingmodal" class="modal fade" role="dialog" >
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content flex" >
+      <div class="modal-header">
+
+        <h4 class="modal-title">Ready, Set, Skydive!</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body" width="1000px;" height="800px;"  >
+{#           <a href={% url 'myapp1:Test'%} >Internal Link</a>#}
+          							<div class="modal-skydive" >
+
+								<div class="caption text-center mt-20">
+									<h6 class="text-uppercase" style="color: #0b0b0b">River Rafting</h6>
+								<p>Rafting, the high-adrenaline sport of navigating a river in an inflatable raft, involves several levels of difficulty, depending on how choppy the river is. These ‘grades’ of difficulty are arrived at according to the presence of rapids, which evolve due to sudden plunges in the river’s height, and also because of rocks – small or large – that may be lurking in the waters. Rafting is a challenging but tremendously fun activity – just remember to keep the instructor’s safety tips in mind! White-water (rapids) does invoke fear but river-running done properly – under professional guidance, with the right training, using the appropriate equipment, taking all safety precautions, and by following a set of international safety and ecological norms – can be an extremely safe, enjoyable and exciting soft-adventure sport.</p>
+                                    <div class="item single-gallery">
+								<img src="{% static 'myapp1/img/rafting2.jpg' %}" alt="" style="height:200px">
+							</div>
+                                </div>
+							</div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+<!--River rafting ends here-->
+
+<!-- Jurrasic model start -->
+<div id="jurrasicmodal" class="modal fade" role="dialog" >
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content flex" >
+      <div class="modal-header">
+
+        <h4 class="modal-title">Unleash the Beasts.</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body" width="1000px;" height="800px;"  >
+{#           <a href={% url 'myapp1:Test'%} >Internal Link</a>#}
+          							<div class="modal-skydive" >
+
+								<div class="caption text-center mt-20">
+									<h6 class="text-uppercase" style="color: #0b0b0b">Jurrasic Park</h6>
+								<p>The Ride is a water-based amusement ride based on the Steven Spielberg 1993 film Jurassic Park and Michael Crichton's 1990 novel of the same name which the film is based on located at Universal's Islands of Adventure in Orlando, Florida and Universal Studios Japan in Osaka. It was formerly located at Universal Studios Hollywood in Universal City, California, where it was turned into Jurassic World: The Ride.</p>
+                                    <div class="item single-gallery">
+								<img src="{% static 'myapp1/img/jurrasic1.jpg' %}" alt="" style="height:200px">
+							</div>
+                                </div>
+							</div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+<!--Jurrasic ends here-->
+
+<!-- Slacking model start -->
+<div id="slackingmodal" class="modal fade" role="dialog" >
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content flex" >
+      <div class="modal-header">
+
+        <h4 class="modal-title">Be able to swin</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body" width="1000px;" height="800px;"  >
+{#           <a href={% url 'myapp1:Test'%} >Internal Link</a>#}
+          							<div class="modal-skydive" >
+
+								<div class="caption text-center mt-20">
+									<h6 class="text-uppercase" style="color: #0b0b0b">Slacking</h6>
+								<p>As is the case with any new adventure, make your water sports excursion more fun by getting everyone involved. Chances are, your friends or family members are just as curious about the new water toy or sports gear you just purchased—so give them a chance to try it out! Even younger kids, when wearing lifejackets and being supervised by adults, can enjoy the thrill of many on-the-water activities.</p>
+                                    <div class="item single-gallery">
+								<img src="{% static 'myapp1/img/slacking.avif' %}" alt="" style="height:200px">
+							</div>
+                                </div>
+							</div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+<!--Slacking ends here-->
+
+<!-- Para model start -->
+<div id="paramodal" class="modal fade" role="dialog" >
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content flex" >
+      <div class="modal-header">
+
+        <h4 class="modal-title">Till you take that fall, you will never learn to glide. </h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body" width="1000px;" height="800px;"  >
+{#           <a href={% url 'myapp1:Test'%} >Internal Link</a>#}
+          							<div class="modal-skydive" >
+
+								<div class="caption text-center mt-20">
+									<h6 class="text-uppercase" style="color: #0b0b0b">Paragliding</h6>
+								<p>Paragliding is the recreational and competitive adventure sport of flying paragliders: lightweight, free-flying, foot-launched glider aircraft with no rigid primary structure.[1] The pilot sits in a harness or lies supine in a cocoon-like 'pod' suspended below a fabric wing. Wing shape is maintained by the suspension lines, the pressure of air entering vents in the front of the wing, and the aerodynamic forces of the air flowing over the outside.</p>
+                                    <div class="item single-gallery">
+								<img src="{% static 'myapp1/img/paragliding2.JPG' %}" alt="" style="height:200px">
+							</div>
+                                </div>
+							</div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+<!--Para ends here-->
+
+            <!-- Scuba model start -->
+<div id="scubamodal" class="modal fade" role="dialog" >
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content flex" >
+      <div class="modal-header">
+
+        <h4 class="modal-title">Explore the ocean</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body" width="1000px;" height="800px;"  >
+{#           <a href={% url 'myapp1:Test'%} >Internal Link</a>#}
+          							<div class="modal-skydive" >
+
+								<div class="caption text-center mt-20">
+									<h6 class="text-uppercase" style="color: #0b0b0b">Scuba Diving</h6>
+								<p>Scuba diving is an underwater diving. The diver uses scuba, it’s a self-contained underwater breathing apparatus. Scuba is fully independent of surface supply, for breathing underwater.
+
+Scuba diving is an experience filled with explorations. And with evolution in diving techniques and apparatuses, it’s become very easy. Passion for diving could really be converted into being a professional diver.
+
+Scuba divers find it exciting and full of fun to go underwater into depths of sea. Seeing coral reefs, big and small fishes swimming closer , diving through caves are some fascinating aspects of diving underwater.</p>
+                                    <div class="item single-gallery">
+								<img src="{% static 'myapp1/img/scubadiving.avif' %}" alt="" style="height:200px">
+							</div>
+                                </div>
+							</div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+<!--Para ends here-->
+
+
+
+
+
+            <script src="{% static 'myapp1/js/vendor/jquery-2.2.4.min.js' %}"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+			<script src="{% static 'myapp1/js/vendor/bootstrap.min.js' %}"></script>
+			<script src="{% static 'myapp1/js/jquery.ajaxchimp.min.js' %}"></script>
+			<script src="{% static 'myapp1/js/jquery.magnific-popup.min.js' %}"></script>
+			<script src="{% static 'myapp1/js/owl.carousel.min.js' %}"></script>
+			<script src="{% static 'myapp1/js/jquery.sticky.js' %}"></script>
+			<script src="{% static 'myapp1/js/slick.js' %}"></script>
+			<script src="{% static 'myapp1/js/jquery.counterup.min.js' %}"></script>
+			<script src="{% static 'myapp1/js/waypoints.min.js' %}"></script>
+			<script src="{% static 'myapp1/js/main.js' %}"></script>
+
+
+
+
+{#			<script src="js/vendor/jquery-2.2.4.min.js"></script>#}
+{#			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>#}
+{#			<script src="js/vendor/bootstrap.min.js"></script>#}
+{#			<script src="js/jquery.ajaxchimp.min.js"></script>#}
+{#			<script src="js/jquery.magnific-popup.min.js"></script>#}
+{#			<script src="js/owl.carousel.min.js"></script>#}
+{#			<script src="js/jquery.sticky.js"></script>#}
+{#			<script src="js/slick.js"></script>#}
+{#			<script src="js/jquery.counterup.min.js"></script>#}
+{#			<script src="js/waypoints.min.js"></script>#}
+{#			<script src="js/main.js"></script>#}
+		</body>
+	</html>
